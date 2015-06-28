@@ -1,7 +1,7 @@
 CC = g++
-SRCS = lexer.cpp 
-PROG = lexer
-CFLAGS = -std=c++11
+SRCS = parser.cpp lexer.cpp
+PROG = parser
+CFLAGS = -std=c++11 -g
 
 all:
 	$(CC) -o $(PROG) $(SRCS) $(CFLAGS)

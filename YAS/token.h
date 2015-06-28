@@ -1,9 +1,6 @@
 #ifndef token_h
 #define token_h
 
-#include "op.h"
-#include "reg.h"
-#include "directive.h"
 
 #define OP_FLAG     0x100
 #define REG_FLAG    0x1000

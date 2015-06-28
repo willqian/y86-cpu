@@ -6,7 +6,7 @@ typedef struct {
     const char *s;
 } Op;
 
-Op ops[] = {
+static Op ops[] = {
     {0x00, "halt"},
     
     {0x10, "nop"},

@@ -1,3 +1,6 @@
+#include "op.h"
+#include "reg.h"
+#include "directive.h"
 #include "lexer.h"
 #include <stdio.h>
 #include <string.h>
@@ -177,7 +180,6 @@ int Lexer::lex(TokenInfo *info)
                     this->saveAndNext();
                 } while ('\n' != _current && '\r' != _current);
                 LEX_DEBUG("[lex] [line-%d] comment to line end [%s]\n", _lineNumber, _buf);
-                this->incLineNumber();
                 return COMMENT;
             }
             case '0': case '1': case '2': case '3': case '4':
@@ -253,7 +255,7 @@ int Lexer::lex(TokenInfo *info)
                         strncpy(info->s, _buf, strlen(_buf));
                         token = this->isOp(info->s);
                         if (token > 0){
-                            LEX_DEBUG("[lex] [line-%d] register [%s - %08x]\n", _lineNumber, info->s, token);
+                            LEX_DEBUG("[lex] [line-%d] op [%s - %08x]\n", _lineNumber, info->s, token);
                             return token;
                         } else {
                             LEX_DEBUG("[lex] [line-%d] name [%s]\n", _lineNumber, info->s);
@@ -367,7 +369,7 @@ int Lexer::lookAhead()
     return _lookAheadToken.token;
 }
 
-#define TEST_LEX
+//#define TEST_LEX
 #ifdef TEST_LEX
 int main(int argc, char *argv[])
 {

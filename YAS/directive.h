@@ -5,7 +5,7 @@ typedef struct {
     const char *s;
 } Directive;
 
-Directive directives[] = {
+static Directive directives[] = {
     {".align"},
     {".long"},
     {".pos"}

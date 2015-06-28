@@ -9,4 +9,4 @@ cd YAS
 
 make
 
-./lexer test.S
+./parser test.S

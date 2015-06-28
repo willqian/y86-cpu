@@ -8,7 +8,7 @@ typedef struct {
 
 #define NON_REG 0x0f
 
-Reg regs[] = {
+static Reg regs[] = {
     {0, "\%eax"},
     {1, "\%ecx"},
     {2, "\%edx"},
